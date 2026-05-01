@@ -23,6 +23,7 @@ A domain-specific computer vision toolkit for defect detection in perovskite sol
 - 🖼️ **Intermediate stage images** for debugging and research
 - ✅ **Zero deep learning** — pure OpenCV + NumPy, runs on CPU
 - 📦 **Pip-installable** clean package structure
+- 💻 **CLI entry point** — run `microdefectcv` directly from any terminal after install
 
 ---
 
@@ -121,25 +122,37 @@ See [`docs/method_overview.md`](docs/method_overview.md) for full technical deta
 ## Quick Start Guide
 
 ### Method 1: Command Line (Single Image)
-Process a single image and generate a pipeline grid + YOLO annotations in the `outputs/` folder.
+After `pip install microdefectcv`, the `microdefectcv` command is available from any terminal — no need to navigate to a script folder.
 ```bash
 # Auto-detect mode
-python examples/demo_perovskite_sem.py path/to/image.jpg
+microdefectcv "C:\Users\asus\Desktop\SEM annotation\3D perovskite with PbI2 excess\08-10.tif" --mode auto --min-area 20
 
-# Force PbI2 mode and drop minimum area to catch tiny sand-like particles
-python examples/demo_perovskite_sem.py path/to/image.jpg --mode pbi2 --min-area 3
+# PbI2 bright particle + needle detection
+microdefectcv "C:\Users\asus\Desktop\SEM annotation\3D perovskite with PbI2 excess\08-10.tif" --mode pbi2 --min-area 30
+
+# Pinhole / dark void detection
+microdefectcv "C:\Users\asus\Desktop\SEM annotation\3D perovskite with PbI2 excess\08-10.tif" --mode pinhole --min-area 20
+
+# 2D perovskite (flat morphology)
+microdefectcv "C:\Users\asus\Desktop\SEM annotation\3D perovskite with PbI2 excess\08-10.tif" --mode 2d --min-area 20
+
+# 3D perovskite with grain boundary suppression
+microdefectcv "C:\Users\asus\Desktop\SEM annotation\3D perovskite with PbI2 excess\08-10.tif" --mode 3d --min-area 20
+
+# Mixed 2D-3D morphology
+microdefectcv "C:\Users\asus\Desktop\SEM annotation\3D perovskite with PbI2 excess\08-10.tif" --mode 3d_2d --min-area 20
 ```
 
 ### Method 2: Batch Processing (PowerShell)
 Process an entire folder of images automatically:
 ```powershell
 Get-ChildItem -Path "path\to\folder" -Filter *.jpg | ForEach-Object {
-    python examples/demo_perovskite_sem.py $_.FullName --mode auto
+    microdefectcv $_.FullName --mode auto
 }
 ```
 
 ### Method 3: Python API
-Import and use the standalone pip package directly in your own scripts:
+Import and use directly in your own scripts:
 ```python
 import cv2
 from microdefectcv import detect_defects

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "microdefectcv"
-version = "0.1.0.post1"
+version = "0.1.1"
 description = "Adaptive OpenCV-based defect enhancement and segmentation for SEM and microstructure images"
 readme = "README.md"
 authors = [
@@ -62,6 +62,9 @@ dependencies = [
     "numpy>=1.21",
     "matplotlib>=3.4",
 ]
+
+[project.scripts]
+microdefectcv = "microdefectcv.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/Sahilsonii/microdefectcv"
