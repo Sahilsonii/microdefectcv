@@ -2,6 +2,11 @@
 
 **Adaptive OpenCV-based defect enhancement and segmentation for SEM and microstructure images.**
 
+[![PyPI version](https://badge.fury.io/py/microdefectcv.svg)](https://pypi.org/project/microdefectcv/)
+[![PyPI Downloads](https://img.shields.io/pypi/dm/microdefectcv)](https://pypi.org/project/microdefectcv/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
+
 A domain-specific computer vision toolkit for defect detection in perovskite solar cell SEM images. MicroDefectCV provides a reusable, mode-aware pipeline for pinhole and PbI₂ bright-particle detection that generalises to a wide range of microstructure images — no deep learning or labelled data required.
 
 > This package provides a lightweight classical computer vision **baseline** for defect enhancement and segmentation. It does not claim to replace deep learning methods on large annotated datasets.
