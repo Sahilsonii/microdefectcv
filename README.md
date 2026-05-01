@@ -2,7 +2,7 @@
 
 **Adaptive OpenCV-based defect enhancement and segmentation for SEM and microstructure images.**
 
-MicroDefectCV is a lightweight classical computer vision library originally developed for perovskite solar-cell SEM pinhole and PbI₂ bright-particle detection. It provides a reusable, mode-aware pipeline that can be applied to a wide range of microstructure images without deep learning or labelled data.
+A domain-specific computer vision toolkit for defect detection in perovskite solar cell SEM images. MicroDefectCV provides a reusable, mode-aware pipeline for pinhole and PbI₂ bright-particle detection that generalises to a wide range of microstructure images — no deep learning or labelled data required.
 
 > This package provides a lightweight classical computer vision **baseline** for defect enhancement and segmentation. It does not claim to replace deep learning methods on large annotated datasets.
 
@@ -24,14 +24,13 @@ MicroDefectCV is a lightweight classical computer vision library originally deve
 ## Installation
 
 ```bash
-cd microdefectcv_release
-pip install -e .
+pip install microdefectcv
 ```
 
-Or install from source after cloning the repository:
+Or install from source:
 
 ```bash
-git clone https://github.com/yourusername/microdefectcv.git
+git clone https://github.com/Sahilsonii/microdefectcv.git
 cd microdefectcv
 pip install -e .
 ```
@@ -150,10 +149,27 @@ save_yolo_annotations(result["detections"], image.shape, "outputs/labels.txt")
 
 ---
 
+## Results
+
+![Defect Detection Output](images/output.png)
+
+---
+
+## Comparison
+
+| Method | Suitability | Notes |
+|---|---|---|
+| Global Threshold | Low | Fails under uneven SEM lighting |
+| Otsu | Low–Medium | No domain adaptation |
+| CLAHE + Otsu | Medium | Better contrast, still single-class |
+| Canny | Edge-only | Not suitable for void/particle detection |
+| **MicroDefectCV** | **High** | Adaptive, mode-aware, domain-specific |
+
+---
+
 ## Running Tests
 
 ```bash
-cd microdefectcv_release
 pytest
 ```
 
@@ -169,17 +185,6 @@ pytest
 
 ---
 
-## Benchmark Plan
-
-See [`docs/benchmark_plan.md`](docs/benchmark_plan.md) for a planned evaluation comparing MicroDefectCV against:
-- Global threshold, Otsu, CLAHE+Otsu
-- Canny edge detection, Watershed
-- YOLOv8 / Faster R-CNN (when annotations are available)
-
-Metrics: Precision, Recall, F1, IoU, Dice, processing time.
-
----
-
 ## Citation
 
 If you use MicroDefectCV in academic work, please cite:
@@ -187,7 +192,7 @@ If you use MicroDefectCV in academic work, please cite:
 ```
 @software{microdefectcv2025,
   title  = {MicroDefectCV: Adaptive OpenCV-based Defect Segmentation for SEM Images},
-  author = {[Sahil Soni]},
+  author = {Sahil Soni},
   year   = {2025},
   url    = {https://github.com/Sahilsonii/microdefectcv}
 }
@@ -202,3 +207,8 @@ If you use MicroDefectCV in academic work, please cite:
 - [ ] Hyperparameter search / sensitivity analysis
 - [ ] Optional integration with OpenCV-contrib
 
+---
+
+## License
+
+MIT — see [LICENSE](LICENSE).
