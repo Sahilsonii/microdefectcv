@@ -31,7 +31,7 @@ pip install -e .
 Or install from source after cloning the repository:
 
 ```bash
-git clone https://github.com/yourusername/microdefectcv.git
+git clone https://github.com/Sahilsonii/microdefectcv.git
 cd microdefectcv
 pip install -e .
 ```
