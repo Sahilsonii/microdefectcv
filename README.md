@@ -187,9 +187,9 @@ If you use MicroDefectCV in academic work, please cite:
 ```
 @software{microdefectcv2025,
   title  = {MicroDefectCV: Adaptive OpenCV-based Defect Segmentation for SEM Images},
-  author = {[Your Name]},
+  author = {[Sahil Soni]},
   year   = {2025},
-  url    = {https://github.com/yourusername/microdefectcv}
+  url    = {https://github.com/Sahilsonii/microdefectcv}
 }
 ```
 
@@ -202,8 +202,3 @@ If you use MicroDefectCV in academic work, please cite:
 - [ ] Hyperparameter search / sensitivity analysis
 - [ ] Optional integration with OpenCV-contrib
 
----
-
-## License
-
-MIT — see [LICENSE](LICENSE).
