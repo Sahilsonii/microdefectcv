@@ -27,6 +27,13 @@ A domain-specific computer vision toolkit for defect detection in perovskite sol
 
 ---
 
+# MicroDefectCV
+
+MicroDefectCV is a computer vision toolkit for defect detection in perovskite solar cell SEM images.
+
+## PyPI
+https://pypi.org/project/microdefectcv/
+
 ## Installation
 
 ```bash
